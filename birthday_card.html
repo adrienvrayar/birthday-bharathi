@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 19th Birthday Bharathi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: purple;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  color: black;
+}
+
+/* ---------- CAKE CONTAINER ---------- */
+.cake-wrapper {
+  position: relative;
+  width: 260px;
+  margin: 200px auto 0;
+  animation: slideUp 2s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(300px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- CANDLES (ON CAKE) ---------- */
+.candles {
+  position: absolute;
+  top: -30px; /* sits on cake */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  z-index: 5;
+}
+
+.number {
+  font-size: 90px;
+  font-weight: bold;
+  color: white;
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 26px;
+  background: radial-gradient(circle, yellow 20%, orange 60%, red 100%);
+  border-radius: 50%;
+  animation: flicker 0.25s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  to { transform: translateX(-50%) scale(1.2); opacity: 1; }
+}
+
+/* ---------- CAKE ---------- */
+#cake {
+  width: 100%;
+  z-index: 1;
+}
+
+/* ---------- TEXT ---------- */
+.text {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.text h1 {
+  font-size: 2.6rem;
+}
+
+.text p {
+  font-size: 1.4rem;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* ---------- CONFETTI ---------- */
+.confetti {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  top: -10px;
+  animation: fall linear infinite;
+  z-index: 0;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CAKE + CANDLES -->
+<div class="cake-wrapper">
+
+  <!-- Candles -->
+  <div class="candles">
+    <div class="number">1
+      <div class="flame"></div>
+    </div>
+    <div class="number">9
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <!-- Cake -->
+  <svg id="cake" viewBox="0 0 200 200">
+    <rect x="10" y="90" width="180" height="60" rx="20" fill="#e6c7ff"/>
+    <rect x="10" y="50" width="180" height="40" rx="20" fill="#f3d9ff"/>
+  </svg>
+
+</div>
+
+<!-- MESSAGE -->
+<div class="text">
+  <h1>Happy 19th Birthday Bharathi 💜</h1>
+  <p>
+    Always be happy,<br>
+    while I'm here I will not leave you easily
+  </p>
+</div>
+
+<script>
+const colors = ["#fff", "#ffd6ff", "#e7c6ff"];
+for (let i = 0; i < 35; i++) {
+  const c = document.createElement("div");
+  c.className = "confetti";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.background = colors[Math.floor(Math.random()*colors.length)];
+  c.style.animationDuration = (Math.random()*3 + 4) + "s";
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
